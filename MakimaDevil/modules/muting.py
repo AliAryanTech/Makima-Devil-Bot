@@ -14,6 +14,8 @@ from MakimaDevil.modules.helper_funcs.extraction import (
     extract_user_and_text,
 )
 from MakimaDevil.modules.helper_funcs.string_handling import extract_time
+from MakimaDevil.modules.helper_funcs.admin_rights import user_can_ban
+from MakimaDevil.modules.helper_funcs.alternate import typing_action
 from MakimaDevil.modules.log_channel import loggable
 from telegram import Bot, Chat, ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
