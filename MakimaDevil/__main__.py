@@ -86,7 +86,7 @@ To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admi
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ᴍᴀᴋɪᴍᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Makima_GroupBot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ ᴍᴀᴋɪᴍᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Makima_devil_bot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="makimamain_"),
