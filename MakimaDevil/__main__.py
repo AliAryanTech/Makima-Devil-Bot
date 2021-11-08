@@ -95,7 +95,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="https://t.me/Makima_Devil_Updates"),
+        InlineKeyboardButton(text=""🀄️ ᴄᴏᴍᴍᴀɴᴅꜱ 🀄️", callback_data="help_back"),
     ],
 ]
 
@@ -341,12 +341,18 @@ def help_button(update, context):
                 ),
             )
 
-        # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
         # query.message.delete()
-
-    except BadRequest:
-        pass
+    except Exception as excp:
+        if excp.message == "Message is not modified":
+            pass
+        elif excp.message == "Query_id_invalid":
+            pass
+        elif excp.message == "Message can't be deleted":
+            pass
+        else:
+            query.message.edit_text(excp.message)
+            LOGGER.exception("Exception in help buttons. %s", str(query.data))
 
 
 @run_async
