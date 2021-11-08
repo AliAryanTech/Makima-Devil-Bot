@@ -102,10 +102,7 @@ buttons = [
 
 HELP_STRINGS = """
 ɪ'ᴍ` Makima🙋‍♀️
-
-Click on the buttons below to get documentation about specific modules..
-
-If any query feel free to ask help in @Makima_Devil_Support"""
+ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ.."""
 
 makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
 
@@ -167,7 +164,7 @@ def send_help(chat_id, text, keyboard=None):
     dispatcher.bot.send_message(
         chat_id=chat_id,
         text=text,
-        parse_mode=ParseMode.MARKDOWN,
+        parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=keyboard,
     )
@@ -258,7 +255,7 @@ def error_handler(update, context):
     if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
-    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.MARKDOWN)
+    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.HTML)
 
 
 # for test purposes
@@ -311,7 +308,7 @@ def help_button(update, context):
                 + HELPABLE[module].__help__
             )
             query.message.edit_caption(
-                caption= text,
+                caption=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
@@ -341,7 +338,7 @@ def help_button(update, context):
 
         elif back_match:
             query.message.edit_caption(
-                caption= HELP_STRINGS,
+                caption=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
