@@ -101,8 +101,11 @@ buttons = [
 
 
 HELP_STRINGS = """
-`ʜɪ.[.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)  ɪ'ᴍ` Makima🙋‍♀️
-`ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
+ ɪ'ᴍ` Makima🙋‍♀️
+ 
+ Click on the buttons below to get documentation about specific modules..
+ 
+ If any query feel free to ask help in @Makima_Devil_Support"""
 
 makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
 
