@@ -14,7 +14,7 @@ from datetime import timedelta
 from pyrogram import Client, filters
 from pyrogram.types import Message
 #ERZA IMPORTS
-from ErzaScarlet import pbot
+from MakimaDevil import pbot
 # LET THE CODE START
 
 session = aiohttp.ClientSession()

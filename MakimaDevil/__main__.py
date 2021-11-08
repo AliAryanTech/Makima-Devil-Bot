@@ -81,12 +81,12 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ʀɪᴋᴋᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Rikka_GroupBot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ ʀɪᴋᴋᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Makima_GroupBot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="makimamain_"),
         InlineKeyboardButton(
-            text="🔰 ꜱᴜᴘᴘᴏʀᴛ 🔰", url=f"https://t.me/RikkaSupport"
+            text="🔰 ꜱᴜᴘᴘᴏʀᴛ 🔰", url=f"https://t.me/Makima_Devil_Support"
         ),
     ],
     [
@@ -96,15 +96,12 @@ buttons = [
 
 
 HELP_STRINGS = """
-`ʜɪ.. ɪ'ᴍ` [Rikka🙋‍♀️](https://te.legra.ph/file/cfc57e6203e2f8585b53f.jpg) 
+`ʜɪ.. ɪ'ᴍ` [Makima🙋‍♀️](https://te.legra.ph/file/cfc57e6203e2f8585b53f.jpg) 
 `ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
 
 makimamain_IMG = "https://telegra.ph/file/39aee1ec1852d650ef25e.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](#) or by contacting @kittu5588 \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+DONATE_STRING = """Heya, No Need."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -349,7 +346,7 @@ def makimamain_about_callback(update, context):
     query = update.callback_query
     if query.data == "makimamain_":
         query.message.edit_text(
-            text=""" 📌 I'm *Rikka*, a powerful group management bot built to help you manage your group easily.
+            text=""" 📌 I'm *Makima*, a powerful group management bot built to help you manage your group easily.
                  \n🔸 I can restrict users.
                  \n🔸 I can greet users with customizable welcome messages and even set a group's rules.
                  \n🔸 I have an advanced anti-flood system.
@@ -381,8 +378,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *Rikka*
-                 \nHere is the [Source Code](https://github.com/Tc653/RIKKA-TAKANASHI-MANAGEMNT) .""",
+            text=""" Hi..🤗 I'm *Makima*
+                 \nHere is the [Source Code](https://github.com/Tc653/Makima-TAKANASHI-MANAGEMNT) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
