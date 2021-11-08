@@ -76,8 +76,11 @@ PM_START_TEXT = """
 Hey there, {}!
 Hey I Am {}
 
-ᴀ ʜɪɢʜʟʏ ᴀᴅᴠᴀɴᴄᴇᴅ ʙᴏᴛ ᴡɪᴛʜ 𝟷𝟶𝟶's ᴀᴡᴇsᴏᴍᴇ ғᴇᴀᴛᴜʀᴇs.
-`ɪ'ᴍ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ! ʜɪᴛ` /help   
+I'm an Highly Advanced Bot With 100's Awesome Features.
+To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admin.
+
+*Status*: [Working Fine](https://t.me/Makima_Devil_Support)
+*Power Left*: `100%`
 """
 
 buttons = [
@@ -102,6 +105,7 @@ HELP_STRINGS = """
 `ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
 
 makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
+
 YAWN_CPT = "I am Awake ! ~ 💤"
 START_IMG = "https://telegra.ph/file/570598778da60177203b4.jpg"
 
