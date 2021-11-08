@@ -164,7 +164,7 @@ def send_help(chat_id, text, keyboard=None):
     dispatcher.bot.send_message(
         chat_id=chat_id,
         text=text,
-        parse_mode=ParseMode.MARKDOWN,
+        parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=keyboard,
     )
@@ -307,7 +307,7 @@ def help_button(update, context):
                 )
                 + HELPABLE[module].__help__
             )
-            query.message.edit_text(
+            query.message.edit_caption(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
@@ -318,7 +318,7 @@ def help_button(update, context):
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
-            query.message.edit_text(
+            query.message.edit_caption(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -328,7 +328,7 @@ def help_button(update, context):
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.edit_text(
+            query.message.edit_caption(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -337,7 +337,7 @@ def help_button(update, context):
             )
 
         elif back_match:
-            query.message.edit_text(
+            query.message.edit_caption(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
@@ -357,7 +357,7 @@ def help_button(update, context):
 def makimamain_about_callback(update, context):
     query = update.callback_query
     if query.data == "makimamain_":
-        query.message.edit_text(
+        query.message.edit_caption(
             text=""" 📌 I'm *ᴍᴀᴋɪᴍᴀ*, a powerful group management bot built to help you manage your group easily.
                  \n🔸 I can restrict users.
                  \n🔸 I can greet users with customizable welcome messages and even set a group's rules.
@@ -376,7 +376,7 @@ def makimamain_about_callback(update, context):
             ),
         )
     elif query.data == "makimamain_back":
-        query.message.edit_text(
+        query.message.edit_caption(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -389,7 +389,7 @@ def makimamain_about_callback(update, context):
 def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
-        query.message.edit_text(
+        query.message.edit_caption(
             text=""" Hi..🤗 I'm *Makima*
                  \nHere is the [Source Code](https://github.com/noobsohail/Makima .""",
             parse_mode=ParseMode.MARKDOWN,
@@ -403,7 +403,7 @@ def Source_about_callback(update, context):
             ),
         )
     elif query.data == "source_back":
-        query.message.edit_text(
+        query.message.edit_caption(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
