@@ -166,13 +166,13 @@ def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_photo(
-        chat_id=chat_id, photo=HELP_IMG, caption=text, parse_mode=ParseMode.HTML, reply_markup=keyboard
+        chat_id=chat_id, photo=HELP_IMG, caption=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
     )
 
 @run_async
 def test(update: Update, context: CallbackContext):
     # pprint(eval(str(update)))
-    # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.HTML)
+    # update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`", parse_mode=ParseMode.MARKDOWN)
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
 
@@ -306,7 +306,7 @@ def help_button(update, context):
             )
             query.message.edit_caption(
                 caption=text,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
@@ -317,7 +317,7 @@ def help_button(update, context):
             curr_page = int(prev_match.group(1))
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
                 ),
@@ -327,7 +327,7 @@ def help_button(update, context):
             next_page = int(next_match.group(1))
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
                 ),
@@ -336,7 +336,7 @@ def help_button(update, context):
         elif back_match:
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
                 ),
@@ -368,7 +368,7 @@ def makimamain_about_callback(update, context):
                  \n🔸 I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
                  \n🔸 I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n🔸 I check for admins' permissions before executing any command and more stuffs .""",
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -382,7 +382,7 @@ def makimamain_about_callback(update, context):
         query.message.edit_caption(
                 caption = PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
         )
@@ -395,7 +395,7 @@ def Source_about_callback(update, context):
         query.message.edit_caption(
             text=""" Hi..🤗 I'm *Makima*
                  \nHere is the [Source Code](https://github.com/noobsohail/Makima .""",
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -409,7 +409,7 @@ def Source_about_callback(update, context):
         query.message.edit_caption(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
         )
@@ -484,14 +484,14 @@ def send_settings(chat_id, user_id, user=False):
             dispatcher.bot.send_message(
                 user_id,
                 "These are your current settings:" + "\n\n" + settings,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
             )
 
         else:
             dispatcher.bot.send_message(
                 user_id,
                 "Seems like there aren't any user specific settings available :'(",
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
             )
 
     else:
@@ -511,7 +511,7 @@ def send_settings(chat_id, user_id, user=False):
                 user_id,
                 "Seems like there aren't any chat settings available :'(\nSend this "
                 "in a group chat you're admin in to find its current settings!",
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
             )
 
 
@@ -534,7 +534,7 @@ def settings_button(update: Update, context: CallbackContext):
             ) + CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)
             query.message.reply_text(
                 text=text,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -581,7 +581,7 @@ def settings_button(update: Update, context: CallbackContext):
             query.message.reply_text(
                 text="Hi there! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(escape_markdown(chat.title)),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
                 ),
@@ -638,14 +638,14 @@ def donate(update: Update, context: CallbackContext):
     bot = context.bot
     if chat.type == "private":
         update.effective_message.reply_text(
-            DONATE_STRING, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
         if OWNER_ID != 254318997 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
             )
 
     else:
@@ -653,7 +653,7 @@ def donate(update: Update, context: CallbackContext):
             bot.send_message(
                 user.id,
                 DONATE_STRING,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
             )
 
