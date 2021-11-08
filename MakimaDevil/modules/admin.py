@@ -637,9 +637,10 @@ def adminlist(update, context):
 
 
 __help__ = """
- ❍ /admins*:* list of admins in the chat
+
 
 *Admins only:*
+ ❍ /admins*:* list of admins in the chat
  ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
  ❍ /unpin*:* unpins the currently pinned message
  ❍ /invitelink*:* gets invitelink

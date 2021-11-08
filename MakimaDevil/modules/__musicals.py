@@ -1,4 +1,4 @@
-__mod_name__ = "◎Music"
+__mod_name__ = "Music"
 
 __help__ = """
 /video <i>query</i>: download video from youtube
