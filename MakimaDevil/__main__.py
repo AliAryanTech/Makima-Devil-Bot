@@ -79,8 +79,8 @@ Hey I Am {}
 I'm an Highly Advanced Bot With 100's Awesome Features.
 To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admin.
 
-*Status*: [Working Fine](https://t.me/Makima_Devil_Support)
-*Power Left*: `100%`
+<b>Status</b>:<a href="https://t.me/Makima_Devil_Support">Working Fine</a>
+<b>Power Left</b>: <i>100%</i>
 """
 
 buttons = [
