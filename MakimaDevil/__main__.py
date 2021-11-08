@@ -217,16 +217,14 @@ def start(update: Update, context: CallbackContext):
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name)),
-                parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
+                parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
     else:
         update.effective_message.reply_video(
             makimamain_IMG, 
             caption = YAWN_CPT.format(
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
+            parse_mode=ParseMode.HTML,
             ))
 
 
@@ -310,7 +308,6 @@ def help_button(update, context):
             query.message.edit_caption(
                 caption=text,
                 parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                 ),
@@ -320,7 +317,7 @@ def help_button(update, context):
             curr_page = int(prev_match.group(1))
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
+                parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
                 ),
@@ -330,7 +327,7 @@ def help_button(update, context):
             next_page = int(next_match.group(1))
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
+                parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
                 ),
@@ -339,7 +336,7 @@ def help_button(update, context):
         elif back_match:
             query.message.edit_caption(
                 caption=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
+                parse_mode=ParseMode.HTML,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
                 ),
@@ -365,7 +362,7 @@ def makimamain_about_callback(update, context):
                  \n🔸 I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
                  \n🔸 I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n🔸 I check for admins' permissions before executing any command and more stuffs .""",
-            parse_mode=ParseMode.MARKDOWN,
+            parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -379,7 +376,7 @@ def makimamain_about_callback(update, context):
         query.message.edit_caption(
                 caption = PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
+                parse_mode=ParseMode.HTML,
                 timeout=60,
                 disable_web_page_preview=False,
         )
