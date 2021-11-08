@@ -1,26 +1,29 @@
 import html
 from typing import Optional
 
+from telegram import Message, Chat, User, Bot, Update
+from telegram import ChatPermissions
+from telegram.error import BadRequest
+from telegram.ext.dispatcher import run_async
+from telegram.utils.helpers import mention_html
+from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import CallbackContext, CommandHandler, Filters, CallbackQueryHandler
+
 from MakimaDevil import LOGGER, KILLERS, dispatcher
 from MakimaDevil.modules.helper_funcs.chat_status import (
     bot_admin,
-    can_restrict,
+    user_admin,
     connection_status,
     is_user_admin,
-    user_admin,
+    can_restrict,
 )
 from MakimaDevil.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
-)
 from MakimaDevil.modules.helper_funcs.string_handling import extract_time
 from MakimaDevil.modules.helper_funcs.admin_rights import user_can_ban
 from MakimaDevil.modules.helper_funcs.alternate import typing_action
 from MakimaDevil.modules.log_channel import loggable
-from telegram import Bot, Chat, ChatPermissions, ParseMode, Update
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
-from telegram.utils.helpers import mention_html
 
 
 @run_async
