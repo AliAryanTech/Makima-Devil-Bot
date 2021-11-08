@@ -357,7 +357,7 @@ def help_button(update, context):
 def makimamain_about_callback(update, context):
     query = update.callback_query
     if query.data == "makimamain_":
-        query.message.edit_caption(
+        query.bot.message.edit_caption(
             text=""" 📌 I'm *ᴍᴀᴋɪᴍᴀ*, a powerful group management bot built to help you manage your group easily.
                  \n🔸 I can restrict users.
                  \n🔸 I can greet users with customizable welcome messages and even set a group's rules.
