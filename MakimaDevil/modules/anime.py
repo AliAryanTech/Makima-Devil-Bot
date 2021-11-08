@@ -501,7 +501,7 @@ def site_search(update: Update, context: CallbackContext, site: str):
 
     if site == "kaizoku":
         search_url = f"https://animekaizoku.com/?s={search_query}"
-        html_text = requests.get(search_url).text
+        html_text = requests.get(search_url , headers=headers).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")
         search_result = soup.find_all("h2", {'class': "post-title"})
 
@@ -516,16 +516,52 @@ def site_search(update: Update, context: CallbackContext, site: str):
             result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKaizoku</code>"
 
     elif site == "kayo":
-        search_url = f"https://animekayo.com/?s={search_query}"
+        search_url = f"https://kayoanime.com/?s={search_query}"
         html_text = requests.get(search_url).text
         soup = bs4.BeautifulSoup(html_text, "html.parser")
-        search_result = soup.find_all("h2", {'class': "title"})
+        search_result = soup.find_all("h2", {'class': "post-title"})
 
-        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>: \n"
+        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>KayoAnime</code>: \n"
         for entry in search_result:
 
             if entry.text.strip() == "Nothing Found":
-                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>AnimeKayo</code>"
+                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>KayoAnime</code>"
+                more_results = False
+                break
+
+            post_link = entry.a['href']
+            post_name = html.escape(entry.text.strip())
+            result += f"• <a href='{post_link}'>{post_name}</a>\n"
+           
+    elif site == "indi":
+        search_url = f"https://indianime.com/?s={search_query}"
+        html_text = requests.get(search_url , headers=headers).text
+        soup = bs4.BeautifulSoup(html_text, "html.parser")
+        search_result = soup.find_all("h2", {"class": "post-title"})
+
+        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>indianime</code>: \n"
+        for entry in search_result:
+
+            if entry.text.strip() == "Nothing Found":
+                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>indianime</code>"
+                more_results = False
+                break
+
+            post_link = entry.a['href']
+            post_name = html.escape(entry.text.strip())
+            result += f"• <a href='{post_link}'>{post_name}</a>\n"
+
+    elif site == "anidl":
+        search_url = f"https://anidl.org/?s={search_query}"
+        html_text = requests.get(search_url).text
+        soup = bs4.BeautifulSoup(html_text, "html.parser")
+        search_result = soup.find_all("h2", {'class': "post-title"})
+
+        result = f"<b>Search results for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>anidl</code>: \n"
+        for entry in search_result:
+
+            if entry.text.strip() == "Nothing Found":
+                result = f"<b>No result found for</b> <code>{html.escape(search_query)}</code> <b>on</b> <code>anidl</code>"
                 more_results = False
                 break
 
@@ -554,20 +590,49 @@ def kaizoku(update: Update, context: CallbackContext):
 @run_async
 def kayo(update: Update, context: CallbackContext):
     site_search(update, context, "kayo")
+    
+@run_async
+def indi(update: Update, context: CallbackContext):
+    site_search(update, context, "indi")
+
+@run_async
+def anidl(update: Update, context: CallbackContext):
+    site_search(update, context, "anidl")    
+    
+    
+@run_async
+def meme(update: Update, context: CallbackContext):
+    msg = update.effective_message
+    meme = requests.get("https://meme-api.herokuapp.com/gimme/Animemes/").json()
+    image = meme.get("url")
+    caption = meme.get("title")
+    if not image:
+        msg.reply_text("No URL was received from the API!")
+        return
+    msg.reply_photo(
+                photo=image, caption=caption)    
 
 
 __help__ = """
 Get information about anime, manga or characters from [AniList](anilist.co).
 *Available commands:*
- • `/anime <anime>`*:* returns information about the anime.
- • `/character <character>`*:* returns information about the character.
- • `/manga <manga>`*:* returns information about the manga.
- • `/user <user>`*:* returns information about a MyAnimeList user.
- • `/upcoming`*:* returns a list of new anime in the upcoming seasons.
- • `/kaizoku <anime>`*:* search an anime on animekaizoku.com
- • `/kayo <anime>`*:* search an anime on animekayo.com
- • `/airing <anime>`*:* returns anime airing info.
- • /whatanime - reply to gif or video
+                               
+➩ *Anime search:*                            
+ ✪ /anime <anime>*:* returns information about the anime.
+ ✪ /whatanime*:* returns source of anime when replied to photo or gif.                                                          
+ ✪ /character <character>*:* returns information about the character.
+ ✪ /manga <manga>*:* returns information about the manga.
+ ✪ /user <user>*:* returns information about a MyAnimeList user.
+ ✪ /upcoming*:* returns a list of new anime in the upcoming seasons.
+ ✪ /airing <anime>*:* returns anime airing info.
+ ✪ /indi <anime>*:* search an anime on indianime.com
+ ✪ /kaizoku <anime>*:* search an anime on animekaizoku.com
+ ✪ /kayo <anime>*:* search an anime on animekayo.com
+ ✪ /anidl <anime>*:* search an anime on anidl.org
+ 
+➩ *Anime Fun:*
+ ✪ /animequotes*:* random anime quote.
+ ✪ /meme*:* sends a random anime meme form reddit `r/animemes`.                           
  """
 
 ANIME_HANDLER = DisableAbleCommandHandler("anime", anime)
@@ -578,6 +643,9 @@ USER_HANDLER = DisableAbleCommandHandler("user", user)
 UPCOMING_HANDLER = DisableAbleCommandHandler("upcoming", upcoming)
 KAIZOKU_SEARCH_HANDLER = DisableAbleCommandHandler("kaizoku", kaizoku)
 KAYO_SEARCH_HANDLER = DisableAbleCommandHandler("kayo", kayo)
+INDI_SEARCH_HANDLER = DisableAbleCommandHandler("indi", indi)
+ANIDL_SEARCH_HANDLER = DisableAbleCommandHandler("anidl", anidl)
+MEME_HANDLER = DisableAbleCommandHandler("meme", meme)
 BUTTON_HANDLER = CallbackQueryHandler(button, pattern='anime_.*')
 
 dispatcher.add_handler(BUTTON_HANDLER)
@@ -588,6 +656,9 @@ dispatcher.add_handler(AIRING_HANDLER)
 dispatcher.add_handler(USER_HANDLER)
 dispatcher.add_handler(KAIZOKU_SEARCH_HANDLER)
 dispatcher.add_handler(KAYO_SEARCH_HANDLER)
+dispatcher.add_handler(INDI_SEARCH_HANDLER)
+dispatcher.add_handler(ANIDL_SEARCH_HANDLER)
+dispatcher.add_handler(MEME_HANDLER)
 dispatcher.add_handler(UPCOMING_HANDLER)
 
 __mod_name__ = "Anime"
