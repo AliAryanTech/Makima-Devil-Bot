@@ -1,6 +1,6 @@
 import threading
 from sqlalchemy import Column, String
-from MashaRoBot.modules.sql import BASE, SESSION
+from MakimaDevil.modules.sql import BASE, SESSION
 #   |----------------------------------|
 #   |  Test Module by @EverythingSuckz |
 #   |        Kang with Credits         |
