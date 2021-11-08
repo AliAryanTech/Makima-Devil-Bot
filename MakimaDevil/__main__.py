@@ -309,6 +309,7 @@ def help_button(update, context):
             )
             query.message.edit_caption(
                 text=text,
+                new_caption,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
@@ -320,6 +321,7 @@ def help_button(update, context):
             curr_page = int(prev_match.group(1))
             query.message.edit_caption(
                 text=HELP_STRINGS,
+                new_caption,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -330,6 +332,7 @@ def help_button(update, context):
             next_page = int(next_match.group(1))
             query.message.edit_caption(
                 text=HELP_STRINGS,
+                new_caption,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -339,6 +342,7 @@ def help_button(update, context):
         elif back_match:
             query.message.edit_caption(
                 text=HELP_STRINGS,
+                new_caption,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
@@ -365,6 +369,7 @@ def makimamain_about_callback(update, context):
                  \n🔸 I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.
                  \n🔸 I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
                  \n🔸 I check for admins' permissions before executing any command and more stuffs .""",
+            new_caption,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
