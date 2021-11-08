@@ -100,6 +100,7 @@ HELP_STRINGS = """
 
 makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
 YAWN_CPT = "I am Awake ! ~ 💤"
+START_IMG = "https://telegra.ph/file/570598778da60177203b4.jpg"
 
 DONATE_STRING = """Heya, No Need."""
 
@@ -203,10 +204,14 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_photo(
+                START_IMG,
+                PM_START_TEXT.format(
+                    escape_markdown(first_name),
+                    escape_markdown(context.bot.first_name)),
                 parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True
                 timeout=60,
             )
     else:
