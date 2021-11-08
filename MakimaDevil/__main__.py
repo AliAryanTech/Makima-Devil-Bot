@@ -95,7 +95,7 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text=""🀄️ ᴄᴏᴍᴍᴀɴᴅꜱ 🀄️", callback_data="help_back"),
+        InlineKeyboardButton(text="🀄️ ᴄᴏᴍᴍᴀɴᴅꜱ 🀄️", callback_data="help_back"),
     ],
 ]
 
