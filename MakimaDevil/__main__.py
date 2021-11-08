@@ -84,7 +84,7 @@ buttons = [
             text="➕️ ᴀᴅᴅ ʀɪᴋᴋᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Rikka_GroupBot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="makimatelethon_"),
+        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="makimamain_"),
         InlineKeyboardButton(
             text="🔰 ꜱᴜᴘᴘᴏʀᴛ 🔰", url=f"https://t.me/RikkaSupport"
         ),
@@ -99,7 +99,7 @@ HELP_STRINGS = """
 `ʜɪ.. ɪ'ᴍ` [Rikka🙋‍♀️](https://te.legra.ph/file/cfc57e6203e2f8585b53f.jpg) 
 `ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
 
-makimatelethon_IMG = "https://telegra.ph/file/39aee1ec1852d650ef25e.jpg"
+makimamain_IMG = "https://telegra.ph/file/39aee1ec1852d650ef25e.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project via [Paypal](#) or by contacting @kittu5588 \
@@ -345,9 +345,9 @@ def help_button(update, context):
 
 
 @run_async
-def makimatelethon_about_callback(update, context):
+def makimamain_about_callback(update, context):
     query = update.callback_query
-    if query.data == "makimatelethon_":
+    if query.data == "makimamain_":
         query.message.edit_text(
             text=""" 📌 I'm *Rikka*, a powerful group management bot built to help you manage your group easily.
                  \n🔸 I can restrict users.
@@ -361,12 +361,12 @@ def makimatelethon_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Back", callback_data="makimatelethon_back")
+                    InlineKeyboardButton(text="Back", callback_data="makimamain_back")
                  ]
                 ]
             ),
         )
-    elif query.data == "makimatelethon_back":
+    elif query.data == "makimamain_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -684,7 +684,7 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(makimatelethon_about_callback, pattern=r"makimatelethon_")
+    about_callback_handler = CallbackQueryHandler(makimamain_about_callback, pattern=r"makimamain_")
     source_callback_handler = CallbackQueryHandler(Source_about_callback, pattern=r"source_")
 
     donate_handler = CommandHandler("donate", donate)
