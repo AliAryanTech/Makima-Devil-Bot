@@ -101,7 +101,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-ɪ'ᴍ` Makima🙋‍♀️
+ɪ'ᴍ Makima🙋‍♀️
  
 Click on the buttons below to get documentation about specific modules..
  
