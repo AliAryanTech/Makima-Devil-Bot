@@ -3,7 +3,7 @@ import time
 import re
 from sys import argv
 from typing import Optional
-
+import Files 
 from MakimaDevil import (
     ALLOW_EXCL,
     CERT_PATH,
@@ -74,14 +74,14 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-ʜɪ [ʀɪᴋᴋᴀ ᴛᴀᴋᴀɴᴀsʜɪ](https://telegra.ph/file/4c32cefe518e18fbfd48f.jpg), ɪᴍ ʀɪᴋᴋᴀ ᴀ ʜɪɢʜʟʏ ᴀᴅᴠᴀɴᴄᴇᴅ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ᴡɪᴛʜ ʟᴏᴠᴇ ʙʏ [ᴛᴀʀᴜɴ].
+ʜɪ ɪ'ᴍ ᴍᴀᴋɪᴍᴀ (https://telegra.ph/file/4c32cefe518e18fbfd48f.jpg), ɪᴍ ᴍᴀᴋɪᴍᴀ ᴀ ʜɪɢʜʟʏ ᴀᴅᴠᴀɴᴄᴇᴅ ʙᴏᴛ ᴡɪᴛʜ 𝟷𝟶𝟶's ᴀᴡᴇsᴏᴍᴇ ғᴇᴀᴛᴜʀᴇs.
 `ɪ'ᴍ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ! ʜɪᴛ` /help   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ᴀᴅᴅ ʀɪᴋᴋᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Makima_GroupBot?startgroup=true"),
+            text="➕️ ᴀᴅᴅ ᴍᴀᴋɪᴍᴀ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕️", url="t.me/Makima_GroupBot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="makimamain_"),
@@ -96,10 +96,11 @@ buttons = [
 
 
 HELP_STRINGS = """
-`ʜɪ.. ɪ'ᴍ` [Makima🙋‍♀️](https://te.legra.ph/file/cfc57e6203e2f8585b53f.jpg) 
+`ʜɪ.[.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)  ɪ'ᴍ` Makima🙋‍♀️
 `ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴅᴏᴄᴜᴍᴇɴᴛᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ꜱᴘᴇᴄɪꜰɪᴄ ᴍᴏᴅᴜʟᴇꜱ..`"""
 
-makimamain_IMG = "https://telegra.ph/file/39aee1ec1852d650ef25e.jpg"
+makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
+YAWN_CPT = "I am Awake ! ~ 💤"
 
 DONATE_STRING = """Heya, No Need."""
 
@@ -210,12 +211,12 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
-                uptime
-            ),
-            parse_mode=ParseMode.HTML,
-        )
+        update.effective_message.reply_video(
+            makimamain_IMG, 
+            YAWN_CPT.format(
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            ))
 
 
 def error_handler(update, context):
@@ -346,7 +347,7 @@ def makimamain_about_callback(update, context):
     query = update.callback_query
     if query.data == "makimamain_":
         query.message.edit_text(
-            text=""" 📌 I'm *Makima*, a powerful group management bot built to help you manage your group easily.
+            text=""" 📌 I'm *ᴍᴀᴋɪᴍᴀ*, a powerful group management bot built to help you manage your group easily.
                  \n🔸 I can restrict users.
                  \n🔸 I can greet users with customizable welcome messages and even set a group's rules.
                  \n🔸 I have an advanced anti-flood system.
@@ -379,7 +380,7 @@ def Source_about_callback(update, context):
     if query.data == "source_":
         query.message.edit_text(
             text=""" Hi..🤗 I'm *Makima*
-                 \nHere is the [Source Code](https://github.com/Tc653/Makima-TAKANASHI-MANAGEMNT) .""",
+                 \nHere is the [Source Code](https://github.com/noobsohail/Makima .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
