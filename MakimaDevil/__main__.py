@@ -111,6 +111,7 @@ makimamain_IMG = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
 
 YAWN_CPT = "I am Awake ! ~ 💤"
 START_IMG = "https://telegra.ph/file/570598778da60177203b4.jpg"
+HELP_IMG = "https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg"
 
 DONATE_STRING = """Heya, No Need."""
 
@@ -165,7 +166,7 @@ def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_photo(
-        chat_id=chat_id, photo=START_IMG, caption=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
+        chat_id=chat_id, photo=HELP_IMG, caption=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
     )
 
 @run_async
