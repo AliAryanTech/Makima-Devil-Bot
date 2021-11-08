@@ -38,7 +38,7 @@ class Config(object):
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
     DEVILS = get_user_list('elevated_users.json', 'sudos')
     ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = get_user_list('elevated_users.json', 'devs')
+    KNIGHTS = get_user_list('elevated_users.json', 'devs')
     ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
     ANGELS = get_user_list('elevated_users.json', 'supports')
     #List of id's (not usernames) for users which WONT be banned/kicked by the bot.

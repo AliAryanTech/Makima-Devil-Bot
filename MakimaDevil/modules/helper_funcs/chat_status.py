@@ -4,7 +4,7 @@ from cachetools import TTLCache
 from threading import RLock
 from MakimaDevil import (
     DEL_CMDS,
-    DEV_USERS,
+    KNIGHTS,
     DEVILS,
     SUPPORT_CHAT,
     ANGELS,
@@ -22,22 +22,22 @@ THREAD_LOCK = RLock()
 
 
 def is_whitelist_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return any(user_id in user for user in [SENSEI, KILLERS, ANGELS, DEVILS, DEV_USERS])
+    return any(user_id in user for user in [SENSEI, KILLERS, ANGELS, DEVILS, KNIGHTS])
 
 
 def is_support_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return user_id in ANGELS or user_id in DEVILS or user_id in DEV_USERS
+    return user_id in ANGELS or user_id in DEVILS or user_id in KNIGHTS
 
 
 def is_sudo_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
-    return user_id in DEVILS or user_id in DEV_USERS
+    return user_id in DEVILS or user_id in KNIGHTS
 
 
 def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     if (
         chat.type == "private"
         or user_id in DEVILS
-        or user_id in DEV_USERS
+        or user_id in KNIGHTS
         or chat.all_members_are_administrators
         or user_id in [777000, 1087968824]
     ):  # Count telegram and Group Anonymous as admin
@@ -78,7 +78,7 @@ def is_user_ban_protected(chat: Chat, user_id: int, member: ChatMember = None) -
     if (
         chat.type == "private"
         or user_id in DEVILS
-        or user_id in DEV_USERS
+        or user_id in KNIGHTS
         or user_id in SENSEI
         or user_id in KILLERS
         or chat.all_members_are_administrators
@@ -103,7 +103,7 @@ def dev_plus(func):
         bot = context.bot
         user = update.effective_user
 
-        if user.id in DEV_USERS:
+        if user.id in KNIGHTS:
             return func(update, context, *args, **kwargs)
         elif not user:
             pass

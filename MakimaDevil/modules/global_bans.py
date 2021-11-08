@@ -17,7 +17,7 @@ from telegram.utils.helpers import mention_html
 import MakimaDevil.modules.sql.global_bans_sql as sql
 from MakimaDevil.modules.sql.users_sql import get_user_com_chats
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     EVENT_LOGS,
     OWNER_ID,
     STRICT_GBAN,
@@ -89,7 +89,7 @@ def gban(update: Update, context: CallbackContext):
         )
         return
 
-    if int(user_id) in DEV_USERS:
+    if int(user_id) in KNIGHTS:
         message.reply_text(
             "That user is part of the Association\nI can't act against our own."
         )

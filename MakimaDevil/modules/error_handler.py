@@ -9,7 +9,7 @@ import pretty_errors
 import io
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CallbackContext, CommandHandler
-from MakimaDevil import dispatcher, DEV_USERS, OWNER_ID
+from MakimaDevil import dispatcher, KNIGHTS, OWNER_ID
 
 pretty_errors.mono()
 
@@ -103,7 +103,7 @@ def error_callback(update: Update, context: CallbackContext):
 
 
 def list_errors(update: Update, context: CallbackContext):
-    if update.effective_user.id not in DEV_USERS:
+    if update.effective_user.id not in KNIGHTS:
         return
     e = {
         k: v for k, v in sorted(errors.items(), key=lambda item: item[1], reverse=True)

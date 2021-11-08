@@ -1,7 +1,7 @@
-from MakimaDevil import DEV_USERS, DEVILS, ANGELS, KILLERS, SENSEI, telethn
+from MakimaDevil import KNIGHTS, DEVILS, ANGELS, KILLERS, SENSEI, telethn
 
-IMMUNE_USERS = DEVILS + SENSEI + ANGELS + KILLERS + DEV_USERS
+IMMUNE_USERS = DEVILS + SENSEI + ANGELS + KILLERS + KNIGHTS
 
 IMMUNE_USERS = (
-    list(DEVILS) + list(SENSEI) + list(ANGELS) + list(KILLERS) + list(DEV_USERS)
+    list(DEVILS) + list(SENSEI) + list(ANGELS) + list(KILLERS) + list(KNIGHTS)
 )

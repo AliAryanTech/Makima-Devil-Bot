@@ -4,7 +4,7 @@ import os
 from typing import Optional
 
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     OWNER_ID,
     DEVILS,
     SUPPORT_CHAT,
@@ -519,7 +519,7 @@ def sudolist(update: Update, context: CallbackContext):
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
-    true_sudo = list(set(DEVILS) - set(DEV_USERS))
+    true_sudo = list(set(DEVILS) - set(KNIGHTS))
     reply = "<b>Known Devils 🐉:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
@@ -538,7 +538,7 @@ def devlist(update: Update, context: CallbackContext):
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
-    true_dev = list(set(DEV_USERS) - {OWNER_ID})
+    true_dev = list(set(KNIGHTS) - {OWNER_ID})
     reply = "<b>Hero Association Members ⚡️:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)

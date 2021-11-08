@@ -1,6 +1,6 @@
 import MakimaDevil.modules.sql.blacklistusers_sql as sql
 from MakimaDevil import ALLOW_EXCL
-from MakimaDevil import DEV_USERS, DEVILS, ANGELS, KILLERS, SENSEI
+from MakimaDevil import KNIGHTS, DEVILS, ANGELS, KILLERS, SENSEI
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
@@ -21,7 +21,7 @@ else:
 class AntiSpam:
     def __init__(self):
         self.whitelist = (
-            (DEV_USERS or [])
+            (KNIGHTS or [])
             + (DEVILS or [])
             + (SENSEI or [])
             + (ANGELS or [])

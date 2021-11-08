@@ -12,13 +12,13 @@ from telegram.ext import (
 )
 
 import MakimaDevil.modules.sql.users_sql as sql
-from MakimaDevil import DEV_USERS, LOGGER, OWNER_ID, dispatcher
+from MakimaDevil import KNIGHTS, LOGGER, OWNER_ID, dispatcher
 from MakimaDevil.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from MakimaDevil.modules.sql.users_sql import get_all_users
 
 USERS_GROUP = 4
 CHAT_GROUP = 5
-DEV_AND_MORE = DEV_USERS.append(int(OWNER_ID))
+DEV_AND_MORE = KNIGHTS.append(int(OWNER_ID))
 
 
 def get_user_id(username):

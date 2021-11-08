@@ -41,7 +41,7 @@ if ENV:
 
     try:
         DEVILS = set(int(x) for x in os.environ.get("DEVILS", "").split())
-        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "953362604").split())
+        KNIGHTS = set(int(x) for x in os.environ.get("KNIGHTS", "953362604").split())
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
@@ -114,7 +114,7 @@ else:
     ALLOW_CHATS = Config.ALLOW_CHATS
     try:
         DEVILS = set(int(x) for x in Config.DEVILS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+        KNIGHTS = set(int(x) for x in Config.KNIGHTS or [])
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
@@ -173,7 +173,7 @@ else:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 DEVILS.add(OWNER_ID)
-DEV_USERS.add(OWNER_ID)
+KNIGHTS.add(OWNER_ID)
 
 
 if not SPAMWATCH_API:
@@ -192,8 +192,8 @@ telethn = TelegramClient("makimatelethon", API_ID, API_HASH)
 pbot = Client("makimapyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
-DEVILS = list(DEVILS) + list(DEV_USERS)
-DEV_USERS = list(DEV_USERS)
+DEVILS = list(DEVILS) + list(KNIGHTS)
+KNIGHTS = list(KNIGHTS)
 SENSEI = list(SENSEI)
 ANGELS = list(ANGELS)
 KILLERS = list(KILLERS)

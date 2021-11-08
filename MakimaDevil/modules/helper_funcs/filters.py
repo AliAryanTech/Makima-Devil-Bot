@@ -1,4 +1,4 @@
-from MakimaDevil import DEV_USERS, DEVILS, ANGELS
+from MakimaDevil import KNIGHTS, DEVILS, ANGELS
 from telegram import Message
 from telegram.ext import BaseFilter
 
@@ -18,7 +18,7 @@ class CustomFilters(object):
 
     class _Developers(BaseFilter):
         def filter(self, message: Message):
-            return bool(message.from_user and message.from_user.id in DEV_USERS)
+            return bool(message.from_user and message.from_user.id in KNIGHTS)
 
     dev_filter = _Developers()
 

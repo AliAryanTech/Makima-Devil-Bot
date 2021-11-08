@@ -2,7 +2,7 @@
 import html
 import MakimaDevil.modules.sql.blacklistusers_sql as sql
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     OWNER_ID,
     DEVILS,
     ANGELS,
@@ -21,8 +21,8 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
-BLACKLISTWHITELIST = [OWNER_ID] + DEV_USERS + DEVILS + SENSEI + ANGELS
-BLABLEUSERS = [OWNER_ID] + DEV_USERS
+BLACKLISTWHITELIST = [OWNER_ID] + KNIGHTS + DEVILS + SENSEI + ANGELS
+BLABLEUSERS = [OWNER_ID] + KNIGHTS
 
 
 @run_async

@@ -6,7 +6,7 @@ from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler, run_async
 
 import MakimaDevil.modules.sql.connection_sql as sql
-from MakimaDevil import dispatcher, DEVILS, DEV_USERS
+from MakimaDevil import dispatcher, DEVILS, KNIGHTS
 from MakimaDevil.modules.helper_funcs import chat_status
 from MakimaDevil.modules.helper_funcs.alternate import send_message, typing_action
 
@@ -279,13 +279,13 @@ def connected(bot: Bot, update: Update, chat, user_id, need_admin=True):
             (isadmin)
             or (isallow and ismember)
             or (user.id in DEVILS)
-            or (user.id in DEV_USERS)
+            or (user.id in KNIGHTS)
         ):
             if need_admin is True:
                 if (
                     getstatusadmin.status in ("administrator", "creator")
                     or user_id in DEVILS
-                    or user.id in DEV_USERS
+                    or user.id in KNIGHTS
                 ):
                     return conn_id
                 else:

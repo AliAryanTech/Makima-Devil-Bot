@@ -14,7 +14,7 @@ from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
 
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     OWNER_ID,
     DEVILS,
     ANGELS,
@@ -287,22 +287,22 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThe Disaster level of this person is 'Overlord'."
+        text += "\n\nBe grateful you able to see our 'King'."
         disaster_level_present = True
-    elif user.id in DEV_USERS:
-        text += "\n\nThis user is member of 'Grandmaster'."
+    elif user.id in KNIGHTS:
+        text += "\n\nThis user is member of 'Knight'."
         disaster_level_present = True
     elif user.id in DEVILS:
-        text += "\n\nThe Disaster level of this person is 'King'."
+        text += "\n\nThis Person is an 'Devil' Stay Away!."
         disaster_level_present = True
     elif user.id in ANGELS:
-        text += "\n\nThe Disaster level of this person is 'Bishop'."
+        text += "\n\nThe Person is an 'Angel'! Stay Closer With Them.."
         disaster_level_present = True
     elif user.id in KILLERS:
-        text += "\n\nThe Disaster level of this person is 'Rook'."
+        text += "\n\nOur Knights Are Finding This 'Killer'! Stay Away."
         disaster_level_present = True
     elif user.id in SENSEI:
-        text += "\n\nThe Disaster level of this person is 'Pawn'."
+        text += "\n\nThis Person is My 'Sensei'! Meanwhile he didn't teach me anything."
         disaster_level_present = True
 
     if disaster_level_present:
@@ -398,7 +398,7 @@ def set_about_me(update: Update, context: CallbackContext):
     if message.reply_to_message:
         repl_message = message.reply_to_message
         repl_user_id = repl_message.from_user.id
-        if repl_user_id in [bot.id, 777000, 1087968824] and (user_id in DEV_USERS):
+        if repl_user_id in [bot.id, 777000, 1087968824] and (user_id in KNIGHTS):
             user_id = repl_user_id
     text = message.text
     info = text.split(None, 1)
@@ -473,11 +473,11 @@ def set_about_bio(update: Update, context: CallbackContext):
             )
             return
 
-        if user_id in [777000, 1087968824] and sender_id not in DEV_USERS:
+        if user_id in [777000, 1087968824] and sender_id not in KNIGHTS:
             message.reply_text("You are not authorised")
             return
 
-        if user_id == bot.id and sender_id not in DEV_USERS:
+        if user_id == bot.id and sender_id not in KNIGHTS:
             message.reply_text(
                 "Erm... yeah, I only trust Makima's Bf to set my bio."
             )

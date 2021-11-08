@@ -6,7 +6,7 @@ from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     LOGGER,
     OWNER_ID,
     DEVILS,
@@ -62,10 +62,10 @@ def ban(update: Update, context: CallbackContext) -> str:
         message.reply_text("Oh yeah, ban myself, noob!")
         return log_message
 
-    if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
+    if is_user_ban_protected(chat, user_id, member) and user not in KNIGHTS:
         if user_id == OWNER_ID:
             message.reply_text("Trying to put me against a Kamisama level disaster huh?")
-        elif user_id in DEV_USERS:
+        elif user_id in KNIGHTS:
             message.reply_text("I can't act against our own.")
         elif user_id in DEVILS:
             message.reply_text(

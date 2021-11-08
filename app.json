@@ -103,7 +103,7 @@
         "value": "",
         "required": false
       },
-      "DEV_USERS": {
+      "KNIGHTS": {
          "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours.",
          "required": false,
          "value": "1936648846"

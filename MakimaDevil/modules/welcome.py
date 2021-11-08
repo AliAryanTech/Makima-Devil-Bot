@@ -8,7 +8,7 @@ from contextlib import suppress
 import MakimaDevil.modules.sql.welcome_sql as sql
 import MakimaDevil
 from MakimaDevil import (
-    DEV_USERS,
+    KNIGHTS,
     LOGGER,
     OWNER_ID,
     DEVILS,
@@ -200,7 +200,7 @@ def new_member(update: Update, context: CallbackContext):
                 continue
 
             # Welcome Devs
-            elif new_mem.id in DEV_USERS:
+            elif new_mem.id in KNIGHTS:
                 update.effective_message.reply_text(
                     "Be cool! A member of the Makima's Bf just joined.",
                     reply_to_message_id=reply,
@@ -551,7 +551,7 @@ def left_member(update: Update, context: CallbackContext):
                 return
 
             # Give the devs a special goodbye
-            elif left_mem.id in DEV_USERS:
+            elif left_mem.id in KNIGHTS:
                 update.effective_message.reply_text(
                     "See you later at the Hero's Association!",
                     reply_to_message_id=reply,
