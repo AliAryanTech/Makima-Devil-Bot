@@ -13,7 +13,7 @@ from MakimaDevil.modules.helper_funcs.alternate import typing_action
 from MakimaDevil import dispatcher, DEVILS, ANGELS, LOGGER
 from MakimaDevil.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
 
-import MakimaDevil.modules.fun_strings as fun
+import MakimaDevil.modules.helper_funcs.fun_strings as fun
 
 
 @run_async
