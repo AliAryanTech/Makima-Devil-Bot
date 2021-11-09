@@ -67,8 +67,8 @@ HELP_STRINGS = """
 
 *ᴀɪ ᴄʜᴀᴛʙᴏᴛ*, *ᴀɴɪᴍᴇ*, *ᴍᴜsɪᴄ*, *ɴᴏᴛᴇs*, *ғɪʟᴛᴇʀs*, *ɴsғᴡ* *ᴀɴᴅ ᴍᴏʀᴇ!*
 
-• *ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ᴇɪᴛʜᴇʀ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ* `/` *ᴏʀ* `!`.
-• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://makima_devil_support) [.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)
+• *ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ᴇɪᴛʜᴇʀ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ* `/` *ᴏʀ* `!`[.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)
+• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://t.me/makima_devil_support) 
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
