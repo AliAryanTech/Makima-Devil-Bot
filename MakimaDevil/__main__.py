@@ -216,14 +216,14 @@ def start(update: Update, context: CallbackContext):
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name)),
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
     else:
         update.effective_message.reply_video(
             makimamain_IMG, 
             caption = YAWN_CPT.format(
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             ))
 
 
@@ -252,7 +252,7 @@ def error_handler(update, context):
     if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
-    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.HTML)
+    context.bot.send_message(chat_id=OWNER_ID, text=message, parse_mode=ParseMode.MARKDOWN)
 
 
 # for test purposes
@@ -306,7 +306,7 @@ def help_button(update, context):
             )
             query.message.edit_caption(
                 caption=text,
-                parse_mode=ParseMode.HTML,
+                parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
