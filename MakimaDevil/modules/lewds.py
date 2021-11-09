@@ -1,3 +1,5 @@
+#FIXED BUGS BY @SOHAILKHAN_ANIME = TG | noobosohail = github
+import nekos 
 import os
 import html
 import requests

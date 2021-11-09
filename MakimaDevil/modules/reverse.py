@@ -182,8 +182,6 @@ __help__ = f"""
 *Commands:* 
 
 • /reverse: Does a reverse image search of the media which it was replied to.
-
-Reports bugs at @GabiHelpSupport
 """
 
 __mod_name__ = "Image Search"

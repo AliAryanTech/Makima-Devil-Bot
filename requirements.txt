@@ -19,7 +19,7 @@ psutil
 aiohttp>=2.2.5
 Pillow>=4.2.0
 CurrencyConverter
-#googletrans
+googletrans==3.1.0a0
 google_trans_new
 jikanpy
 speedtest-cli
@@ -67,3 +67,6 @@ nudepy
 motor
 cloudscraper
 tzlocal==2.0
+
+#extra
+nekos.py
