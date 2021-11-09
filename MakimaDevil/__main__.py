@@ -55,6 +55,7 @@ PM_START_TEXT = """
 *Hi There! {}, myself {}!* 
 
 I'm an Highly Advanced Bot With 100's Awesome Features.
+
 To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admin.
 
 • *Uptime:* `{}`
@@ -70,7 +71,7 @@ HELP_STRINGS = """
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-MAKIMA_IMG = "https://telegra.ph/file/6152bf2f73ca8ea30772a.png"
+MAKIMA_IMG = "https://telegra.ph/file/570598778da60177203b4.jpg"
 MAKIMASTART = "https://telegra.ph/file/ac997ad5f9e11cbe9512c.mp4"
 HELP_IMG = "https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg"
 
@@ -127,11 +128,11 @@ for module_name in ALL_MODULES:
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
-    dispatcher.bot.send_photo(
+    dispatcher.bot.send_message(
         chat_id=chat_id,
-        photo = HELP_IMG,
-        caption=text,
+        text=text,
         parse_mode=ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
         reply_markup=keyboard)
 
 
@@ -190,6 +191,7 @@ def start(update: Update, context: CallbackContext):
                     sql.num_users(),
                     sql.num_chats()),
                 parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
@@ -204,17 +206,11 @@ def start(update: Update, context: CallbackContext):
                          InlineKeyboardButton(
                              text="🎉 Updates",
                              url="https://t.me/Makima_Devil_Updates"),
-                         InlineKeyboardButton(
-                             text="🗃 Guide",
-                             url="https://t.me/Makima_Devil_Updates/20"),
               
                     ],
-                     [
+                     [                    
                         InlineKeyboardButton(
-                             text="Anime Chat",
-                             url="https://t.me/indianimein"),                    
-                        InlineKeyboardButton(
-                             text="Help & Commands",
+                             text="🀄️ ᴄᴏᴍᴍᴀɴᴅꜱ 🀄️",
                              url="https://t.me/Makima_devil_bot?start=help"),      
                     ]]))
     else:
@@ -271,9 +267,10 @@ def help_button(update, context):
             module = mod_match.group(1)
             text = ("Here is the help for the *{}* module:\n".format(
                 HELPABLE[module].__mod_name__) + HELPABLE[module].__help__)
-            query.message.edit_caption(
-                caption=text,
+            query.message.edit_text(
+                text=text,
                 parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Back", callback_data="help_back")
@@ -281,23 +278,23 @@ def help_button(update, context):
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
-            query.message.edit_caption(
-                captiom=HELP_STRINGS,
+            query.message.edit_text(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")))
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.edit_caption(
-                caption=HELP_STRINGS,
+            query.message.edit_text(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")))
 
         elif back_match:
-            query.message.edit_caption(
-                caption=HELP_STRINGS,
+            query.message.edit_text(
+                text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")))
@@ -582,7 +579,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Makima started sucessfully...")
+        LOGGER.info("Makima is deployed sucessfully...")
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
     if len(argv) not in (1, 3, 4):
