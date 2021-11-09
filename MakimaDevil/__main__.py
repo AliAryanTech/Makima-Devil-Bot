@@ -63,12 +63,12 @@ To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admi
 """
 
 HELP_STRINGS = """
-*{} comes with:*
+*{} ᴄᴏᴍᴇs ᴡɪᴛʜ:*
 
-*AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
+*ᴀɪ ᴄʜᴀᴛʙᴏᴛ*, *ᴀɴɪᴍᴇ*, *ᴍᴜsɪᴄ*, *ɴᴏᴛᴇs*, *ғɪʟᴛᴇʀs*, *ɴsғᴡ* *ᴀɴᴅ ᴍᴏʀᴇ!*
 
-🎛 *All commands can either be used with* `/` *or* `!`.
-🎛 *Reach out for support:* [Support](https://makima_devil_support) [.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)
+• *ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ᴇɪᴛʜᴇʀ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ* `/` *ᴏʀ* `!`.
+• *ʀᴇᴀᴄʜ ᴏᴜᴛ ғᴏʀ sᴜᴘᴘᴏʀᴛ:* [sᴜᴘᴘᴏʀᴛ](https://makima_devil_support) [.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
