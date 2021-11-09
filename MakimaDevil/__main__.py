@@ -64,9 +64,11 @@ To Use My All Features Add Me In Your Group & Don't Forget To Promote Me As Admi
 
 HELP_STRINGS = """
 *{} comes with:*
+
 *AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
+
 🎛 *All commands can either be used with* `/` *or* `!`.
-🎛 *Reach out for support:* @Makima_Devil_support
+🎛 *Reach out for support:* [Support](https://makima_devil_support) [.](https://telegra.ph/file/466ea7a1cb2fcadaa7be0.jpg)
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
@@ -201,10 +203,10 @@ def start(update: Update, context: CallbackContext):
                     ],
                      [
                          InlineKeyboardButton(
-                             text="⚙️ Support",
+                             text="🔰 ꜱᴜᴘᴘᴏʀᴛ 🔰",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                          InlineKeyboardButton(
-                             text="🎉 Updates",
+                             text="🎉 ᴜᴘᴅᴀᴛᴇs 🎉",
                              url="https://t.me/Makima_Devil_Updates"),
               
                     ],
