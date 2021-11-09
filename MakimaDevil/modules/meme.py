@@ -123,7 +123,7 @@ def slap(update, context):
     reply_text(repl, parse_mode=ParseMode.MARKDOWN)
 
 
-#sanitize a user - by @MakimaDevil
+#sanitize a user - by @ErzaScarlet
 @run_async
 @typing_action
 def sanitize(update: Update, context: CallbackContext):
@@ -539,7 +539,7 @@ TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 DECIDE_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"(?i)^Makima\?"), decide, friendly="decide"
+    Filters.regex(r"(?i)^Erza\?"), decide, friendly="decide"
 )
 ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse,pass_args=True)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs ,pass_args=True)
